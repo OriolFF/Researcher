@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Researcher - AI Research Assistant for Writers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📚 Historical Researcher</h1>
+            <p class="subtitle">AI-powered research assistant for historically accurate storytelling</p>
+            <div id="tier-status" class="tier-status">
+                <span class="tier-badge tier1 active">Tier 1: Active</span>
+                <span class="tier-badge tier2" id="tier2-badge">Tier 2: Checking...</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Research Form -->
+            <section class="research-section">
+                <form id="research-form">
+                    <div class="form-group">
+                        <label for="query">Research Query</label>
+                        <textarea 
+                            id="query" 
+                            name="query" 
+                            rows="4" 
+                            placeholder="Example: What weapons were used at the Battle of Waterloo? What was daily life like in medieval castles?"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="research-depth">Research Depth</label>
+                            <select id="research-depth" name="depth">
+                                <option value="auto">Auto (Recommended)</option>
+                                <option value="basic">Basic - Fast (Tier 1 only)</option>
+                                <option value="deep">Deep - Thorough (Tier 2)</option>
+                            </select>
+                            <small class="help-text">Auto mode intelligently escalates when needed</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="output-format">Output Format</label>
+                            <select id="output-format" name="format">
+                                <option value="markdown">Markdown (Writer-friendly)</option>
+                                <option value="json">JSON (Structured data)</option>
+                                <option value="structured">Pydantic (Full details)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="llm-provider">LLM Provider</label>
+                            <select id="llm-provider" name="provider">
+                                <option value="openai">OpenAI (GPT-4)</option>
+                                <option value="anthropic">Anthropic (Claude)</option>
+                                <option value="gemini">Google (Gemini)</option>
+                                <option value="openrouter">OpenRouter</option>
+                                <option value="ollama">Ollama (Local)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="citation-format">Citation Format</label>
+                            <select id="citation-format" name="citations">
+                                <option value="MLA">MLA</option>
+                                <option value="APA">APA</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="btn-primary">
+                        <span class="btn-text">🔍 Research</span>
+                        <span class="btn-loader"></span>
+                    </button>
+                </form>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="results-section" style="display: none;">
+                <div class="results-header">
+                    <h2>Research Results</h2>
+                    <div class="results-meta">
+                        <span class="tier-indicator" id="result-tier"></span>
+                        <span class="confidence-score" id="confidence-score"></span>
+                        <span class="execution-time" id="execution-time"></span>
+                    </div>
+                </div>
+
+                <!-- Findings -->
+                <div class="findings-container">
+                    <h3>Findings</h3>
+                    <div id="findings-content" class="content-display"></div>
+                    <button class="btn-copy" onclick="copyToClipboard('findings-content')">📋 Copy</button>
+                </div>
+
+                <!-- Sources -->
+                <div class="sources-container">
+                    <h3>Sources (<span id="source-count">0</span>)</h3>
+                    <div id="sources-list" class="sources-list"></div>
+                </div>
+
+                <!-- Citations -->
+                <div class="citations-container">
+                    <h3>Citations</h3>
+                    <div id="citations-content" class="citations-display"></div>
+                    <button class="btn-copy" onclick="copyToClipboard('citations-content')">📋 Copy Bibliography</button>
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section class="error-section" id="error-section" style="display: none;">
+                <div class="error-message">
+                    <h3>⚠️ Error</h3>
+                    <p id="error-text"></p>
+                    <button class="btn-secondary" onclick="hideError()">Dismiss</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by PydanticAI • Hybrid Tier Architecture • <a href="/health" target="_blank">System Status</a></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
