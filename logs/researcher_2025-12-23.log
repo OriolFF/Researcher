@@ -1,0 +1,75 @@
+2025-12-23 18:50:51.039 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 18:50:51.041 | INFO     | researcher.main:<module>:48 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 18:50:51.042 | INFO     | researcher.main:startup_event:56 | Application starting up...
+2025-12-23 18:50:51.042 | INFO     | researcher.main:startup_event:57 | Tier 1 enabled: True
+2025-12-23 18:50:51.042 | INFO     | researcher.main:startup_event:58 | Tier 2 available: False
+2025-12-23 18:53:11.205 | INFO     | researcher.main:shutdown_event:64 | Application shutting down...
+2025-12-23 18:53:12.030 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 18:53:12.032 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 18:53:12.033 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 18:53:12.033 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 18:53:12.033 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 18:53:12.033 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 18:53:13.253 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 18:59:22.204 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 18:59:22.207 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 18:59:22.207 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 18:59:22.208 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 18:59:22.208 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 18:59:22.208 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 18:59:22.286 | WARNING  | researcher.main:log_requests:43 | Request failed: OPTIONS http://localhost:8000/research - Status: 400
+2025-12-23 19:00:27.765 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:00:37.234 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:00:37.236 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:00:37.237 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:00:37.237 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:00:37.237 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:00:37.238 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:00:59.642 | WARNING  | researcher.main:log_requests:43 | Request failed: OPTIONS http://localhost:8000/research - Status: 400
+2025-12-23 19:01:06.546 | WARNING  | researcher.main:log_requests:43 | Request failed: OPTIONS http://localhost:8000/research - Status: 400
+2025-12-23 19:01:28.984 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:01:29.804 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:01:29.806 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:01:29.806 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:01:29.807 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:01:29.807 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:01:29.807 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:01:54.405 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:01:57.258 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:01:57.260 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:01:57.261 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:01:57.261 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:01:57.262 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:01:57.262 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:02:09.443 | WARNING  | researcher.main:log_requests:43 | Request failed: OPTIONS http://localhost:8000/research - Status: 400
+2025-12-23 19:02:09.443 | INFO     | researcher.main:log_requests:48 | Request headers: Headers({'host': 'localhost:8000', 'connection': 'keep-alive', 'accept': '*/*', 'access-control-request-method': 'POST', 'access-control-request-headers': 'content-type', 'origin': 'null', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'sec-fetch-mode': 'cors', 'sec-fetch-site': 'cross-site', 'sec-fetch-dest': 'empty', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'es-ES,es;q=0.9,en-GB;q=0.8,en;q=0.7,el-GR;q=0.6,el;q=0.5'})
+2025-12-23 19:02:32.765 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:02:33.620 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:02:33.622 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:02:33.622 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:02:33.623 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:02:33.623 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:02:33.623 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:04:13.271 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:04:16.082 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:04:16.084 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:04:16.085 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:04:16.085 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:04:16.085 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:04:16.085 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:04:27.587 | INFO     | researcher.api.routes:research:57 | Research request: artic expeditions...
+2025-12-23 19:04:27.587 | INFO     | researcher.agent.researcher:_get_model:84 | Using local Ollama model: llama3.1 at http://localhost:11434
+2025-12-23 19:04:27.587 | ERROR    | researcher.api.routes:research:85 | Unexpected error: No module named 'pydantic_ai.models.ollama'
+2025-12-23 19:04:27.587 | WARNING  | researcher.main:log_requests:43 | Request failed: POST http://localhost:8000/research - Status: 500
+2025-12-23 19:16:21.381 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:16:25.846 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:16:25.848 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:16:25.848 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:16:25.849 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:16:25.849 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:16:25.849 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:16:38.286 | INFO     | researcher.api.routes:research:57 | Research request: artic expedition
+...
+2025-12-23 19:16:38.286 | INFO     | researcher.agent.researcher:_get_model:84 | Using local Ollama model: llama3.1 at http://localhost:11434
+2025-12-23 19:16:38.289 | ERROR    | researcher.api.routes:research:85 | Unexpected error: No module named 'pydantic_ai.models.ollama'
+2025-12-23 19:16:38.289 | WARNING  | researcher.main:log_requests:43 | Request failed: POST http://localhost:8000/research - Status: 500

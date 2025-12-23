@@ -81,6 +81,7 @@ class ResearchAgent:
         model_name = settings.llm_model
         
         if provider == "ollama":
+            logger.info(f"Using local Ollama model: {model_name} at {settings.ollama_base_url}")
             from pydantic_ai.models.ollama import OllamaModel
             return OllamaModel(
                 model_name=model_name,

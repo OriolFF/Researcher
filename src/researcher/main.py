@@ -35,9 +35,24 @@ app.add_middleware(
 # Include API routes
 app.include_router(router, prefix="", tags=["research"])
 
+@app.middleware("http")
+async def log_requests(request, call_next):
+    """Log details of requests that fail with 400+."""
+    response = await call_next(request)
+    if response.status_code >= 400:
+        logger.warning(
+            f"Request failed: {request.method} {request.url} - Status: {response.status_code}"
+        )
+        # Log headers for preflight requests
+        if request.method == "OPTIONS":
+            logger.info(f"Request headers: {request.headers}")
+    return response
+
 # Serve web client static files
-web_dir = Path(__file__).parent.parent.parent.parent / "web"
+# Correct path relative to src/researcher/main.py -> src/../web
+web_dir = Path(__file__).parent.parent.parent / "web"
 if web_dir.exists():
+    logger.info(f"Serving web client from: {web_dir}")
     app.mount("/static", StaticFiles(directory=str(web_dir)), name="static")
     
     @app.get("/")

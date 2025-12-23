@@ -52,6 +52,8 @@ TAVILY_API_KEY=tvly-your-key-here
 
 ### 3. Run the Server
 
+For detailed instructions on managing the server, see the [/server](file:///c:/Users/uriol/development/projects/Researcher/.agent/workflows/server.md) workflow.
+
 ```bash
 uv run python -m researcher.main
 ```
