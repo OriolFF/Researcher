@@ -5,7 +5,7 @@ description = "Historical research agent for writers using PydanticAI with hybri
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "pydantic-ai-slim[openai,anthropic,gemini]>=0.0.14",
+    "pydantic-ai-slim[openai,anthropic,gemini,ollama]>=0.0.14",
     "litellm>=1.0.0",
     "fastapi>=0.115.0",
     "uvicorn[standard]>=0.32.0",

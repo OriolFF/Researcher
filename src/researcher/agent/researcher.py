@@ -7,12 +7,26 @@ Uses WebSearchTool and WebFetchTool for research with automatic citations.
 import time
 from datetime import datetime
 
-from pydantic_ai import Agent
+from pydantic_ai import Agent, RunContext
 from pydantic_ai.models import KnownModelName
+from researcher.agent.tools import ddg_search, format_ddg_as_sources
 
 from researcher.core.config import settings
-from researcher.core.logging import log_research_request, log_research_result, logger
-from researcher.domain.models import ResearchQuery, ResearchResult, ResearchTier, Source
+from researcher.core.logging import (
+    log_research_request,
+    log_research_result,
+    log_tier_escalation,
+    logger
+)
+from researcher.domain.models import (
+    ResearchDepth,
+    ResearchQuery,
+    ResearchResult,
+    ResearchTier,
+    Source
+)
+from researcher.domain.services import EscalationService
+from researcher.data.tier2.tavily_client import TavilyAdvancedClient
 
 
 class ResearchAgent:
@@ -27,56 +41,63 @@ class ResearchAgent:
     
     def __init__(self):
         """Initialize the research agent with Tier 1 tools."""
-        self.model_name = self._get_model_name()
+        self.model = self._get_model()
         
-        # Import built-in tools
-        try:
-            from pydantic_ai import WebSearchTool, WebFetchTool
+        # Configure Tier 1 agent
+        self.agent = Agent(
+            self.model,
+            system_prompt=self._get_system_prompt(),
+        )
+        
+        # Register the DuckDuckGo search tool
+        @self.agent.tool
+        async def search_web(ctx: RunContext[None], query: str) -> str:
+            """
+            Search the web for information using DuckDuckGo.
+            Use this when you need up-to-date facts or historical details.
+            """
+            results = await ddg_search(query, max_results=settings.tier1_max_sources)
+            if not results:
+                return "No search results found."
             
-            # Configure Tier 1 agent with built-in tools
-            self.agent = Agent(
-                self.model_name,
-                builtin_tools=[
-                    WebSearchTool(),
-                    WebFetchTool(
-                        enable_citations=True,
-                        allowed_domains=settings.tier1_allowed_domains,
-                        max_uses=settings.tier1_max_sources,
-                    )
-                ],
-                system_prompt=self._get_system_prompt(),
-            )
+            # Store sources in context for extraction later if needed
+            # (Simplification for this implementation)
+            self._last_sources = format_ddg_as_sources(results)
             
-            logger.info(f"Tier 1 agent initialized with model: {self.model_name}")
-            
-        except ImportError as e:
-            logger.error(f"Failed to import PydanticAI built-in tools: {e}")
-            # Fallback: create agent without built-in tools
-            self.agent = Agent(
-                self.model_name,
-                system_prompt=self._get_system_prompt(),
-            )
-            logger.warning("Agent created without built-in tools (import error)")
+            formatted = "\n".join([f"[{i+1}] {r['title']}: {r['body']} (URL: {r['href']})" for i, r in enumerate(results)])
+            return f"Search results for '{query}':\n{formatted}"
+
+        # Initialize Tier 2 client
+        self.tavily = TavilyAdvancedClient()
+        self.escalation_service = EscalationService()
+        
+        logger.info(f"Tier 1 agent initialized with model: {settings.llm_provider.value}:{settings.llm_model}")
+        self._last_sources = []
+
     
-    def _get_model_name(self) -> str:
-        """Get the model name in PydanticAI format."""
+    def _get_model(self) -> any:
+        """Get the model instance or name in PydanticAI format."""
         provider = settings.llm_provider.value
-        model = settings.llm_model
+        model_name = settings.llm_model
         
-        # PydanticAI uses format: "provider:model"
-        # But for some providers, it expects specific formats
+        if provider == "ollama":
+            from pydantic_ai.models.ollama import OllamaModel
+            return OllamaModel(
+                model_name=model_name,
+                base_url=f"{settings.ollama_base_url}/api" if not settings.ollama_base_url.endswith("/api") else settings.ollama_base_url
+            )
+        
         if provider == "openai":
-            return f"openai:{model}"
+            return f"openai:{model_name}"
         elif provider == "anthropic":
-            return f"anthropic:{model}"
+            return f"anthropic:{model_name}"
         elif provider == "gemini":
-            return f"gemini-1.5-flash"  # PydanticAI expects specific format
+            return f"google-gla:gemini-1.5-flash"  # Standard PydanticAI name
         elif provider == "openrouter":
-            return f"openrouter/{model}"
-        elif provider == "ollama":
-            return f"ollama:{model}"
+            return f"openrouter:{model_name}"
         else:
-            return f"{provider}:{model}"
+            return f"{provider}:{model_name}"
+
     
     def _get_system_prompt(self) -> str:
         """Get the system prompt for Tier 1 research."""
@@ -109,13 +130,24 @@ Remember: You are using built-in web search and fetch tools. Use them to find ac
     
     async def research(self, query: ResearchQuery) -> ResearchResult:
         """
-        Conduct Tier 1 research using built-in tools.
+        Conduct research with the appropriate depth.
         
         Args:
-            query: Research query
+            query: Research query with depth preference
             
         Returns:
-            Research result with sources and citations
+            Research result
+        """
+        if query.depth == ResearchDepth.BASIC:
+            return await self.basic_research(query)
+        elif query.depth == ResearchDepth.DEEP:
+            return await self.deep_research(query)
+        else:
+            return await self.comprehensive_research(query)
+
+    async def basic_research(self, query: ResearchQuery) -> ResearchResult:
+        """
+        Conduct Tier 1 research only.
         """
         start_time = time.time()
         
@@ -129,25 +161,11 @@ Remember: You are using built-in web search and fetch tools. Use them to find ac
             # Run the agent
             result = await self.agent.run(query.query)
             
-            # Parse the result
-            # Note: PydanticAI's built-in tools automatically include sources
-            # We need to extract them from the result
-            
             findings = result.data if hasattr(result, 'data') else str(result)
-            
-            # Extract sources from result (if available)
             sources = self._extract_sources(result)
-            
-            # Generate citations
             citations = self._format_citations(sources)
-            
-            # Calculate execution time
             execution_time_ms = (time.time() - start_time) * 1000
-            
-            # Estimate confidence (can be refined based on source quality)
             confidence = self._estimate_confidence(sources, findings)
-            
-            # Identify gaps (basic implementation)
             gaps = self._identify_gaps(findings, query.query)
             
             research_result = ResearchResult(
@@ -171,32 +189,141 @@ Remember: You are using built-in web search and fetch tools. Use them to find ac
             return research_result
             
         except Exception as e:
-            logger.error(f"Tier 1 research failed: {e}")
+            logger.error(f"Basic research failed: {e}")
+            return self._create_error_result(query, start_time, str(e))
+
+    async def deep_research(self, query: ResearchQuery) -> ResearchResult:
+        """
+        Conduct Tier 2 research directly.
+        """
+        if not settings.is_tier2_available():
+            logger.warning("Tier 2 requested but not available. Falling back to Tier 1.")
+            return await self.basic_research(query)
             
-            # Return minimal result on error
-            execution_time_ms = (time.time() - start_time) * 1000
-            return ResearchResult(
+        start_time = time.time()
+        
+        log_research_request(
+            query=query.query,
+            depth="deep",
+            tier="tier2"
+        )
+        
+        try:
+            # 1. Use Tavily for advanced search
+            sources = await self.tavily.search(
                 query=query.query,
-                findings=f"Research failed: {str(e)}",
-                sources=[],
-                citations=[],
-                confidence=0.0,
-                tier_used=ResearchTier.TIER1,
-                execution_time_ms=execution_time_ms,
-                gaps=["Complete research failure - all information unavailable"],
+                max_results=settings.tier2_max_sources
             )
+            
+            # 2. Get search context (Tavily optimizes this for LLMs)
+            context = await self.tavily.get_search_context(query.query)
+            
+            # 3. Use the agent to synthesize findings from the deeper context
+            # We inject the context into the prompt
+            synthesis_prompt = f"""
+            Using the following advanced research results, provide a comprehensive answer to the query: '{query.query}'
+            
+            ADVANCED RESEARCH RESULTS:
+            {context}
+            
+            Include inline citations [1], [2], etc. corresponding to the sources provided.
+            """
+            
+            result = await self.agent.run(synthesis_prompt)
+            findings = result.data if hasattr(result, 'data') else str(result)
+            
+            citations = self._format_citations(sources)
+            execution_time_ms = (time.time() - start_time) * 1000
+            
+            # Tier 2 usually has higher confidence due to more sources
+            confidence = min(0.95, self._estimate_confidence(sources, findings) + 0.1)
+            gaps = self._identify_gaps(findings, query.query)
+            
+            research_result = ResearchResult(
+                query=query.query,
+                findings=findings,
+                sources=sources,
+                citations=citations,
+                confidence=confidence,
+                tier_used=ResearchTier.TIER2,
+                execution_time_ms=execution_time_ms,
+                gaps=gaps,
+            )
+            
+            log_research_result(
+                tier_used="tier2",
+                source_count=len(sources),
+                confidence=confidence,
+                execution_time_ms=execution_time_ms
+            )
+            
+            return research_result
+            
+        except Exception as e:
+            logger.error(f"Deep research failed: {e}")
+            return self._create_error_result(query, start_time, str(e), tier=ResearchTier.TIER2)
+
+    async def comprehensive_research(self, query: ResearchQuery) -> ResearchResult:
+        """
+        Perform research with automatic escalation.
+        """
+        # Step 1: Start with Tier 1
+        tier1_result = await self.basic_research(query)
+        
+        # Step 2: Check if Tier 2 is even possible
+        if not settings.is_tier2_available():
+            return tier1_result
+            
+        # Step 3: Evaluate if escalation is needed
+        decision = self.escalation_service.should_escalate(tier1_result, query)
+        
+        if not decision.should_escalate:
+            return tier1_result
+            
+        # Step 4: Escalate to Tier 2
+        log_tier_escalation(
+            reason=decision.reason,
+            from_tier="tier1",
+            to_tier="tier2"
+        )
+        
+        tier2_result = await self.deep_research(query)
+        
+        # Merge results or return Tier 2 (prefer Tier 2 as it's more definitive)
+        # Note: We keep Tier 1 sources if they are unique
+        all_sources = self._merge_sources(tier1_result.sources, tier2_result.sources)
+        tier2_result.sources = all_sources
+        tier2_result.citations = self._format_citations(all_sources)
+        
+        return tier2_result
+
+    def _create_error_result(self, query, start_time, error_msg, tier=ResearchTier.TIER1):
+        execution_time_ms = (time.time() - start_time) * 1000
+        return ResearchResult(
+            query=query.query,
+            findings=f"Research failed: {error_msg}",
+            sources=[],
+            citations=[],
+            confidence=0.0,
+            tier_used=tier,
+            execution_time_ms=execution_time_ms,
+            gaps=["Complete research failure"],
+        )
+
+    def _merge_sources(self, s1: list[Source], s2: list[Source]) -> list[Source]:
+        urls = {s.url for s in s2}
+        merged = list(s2)
+        for s in s1:
+            if s.url not in urls:
+                merged.append(s)
+        return merged
+
     
     def _extract_sources(self, result: any) -> list[Source]:
-        """Extract sources from agent result."""
-        sources = []
-        
-        # Try to extract from result metadata
-        # This depends on PydanticAI's actual structure
-        # For now, placeholder implementation
-        
-        # TODO: Properly extract from PydanticAI result when built-in tools provide sources
-        
-        return sources
+        """Extract sources from agent result and context."""
+        # For this implementation, we use the sources stored during the last tool call
+        return self._last_sources
+
     
     def _format_citations(self, sources: list[Source]) -> list[str]:
         """Format sources as citations."""
