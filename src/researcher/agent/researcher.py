@@ -98,7 +98,7 @@ class ResearchAgent:
 
             return OpenAIModel(
                 model_name=model_name,
-                provider="ollama",
+                provider="openai-chat",
             )
         
         if provider == "openai":
