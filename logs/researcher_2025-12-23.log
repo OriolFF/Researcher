@@ -73,3 +73,236 @@
 2025-12-23 19:16:38.286 | INFO     | researcher.agent.researcher:_get_model:84 | Using local Ollama model: llama3.1 at http://localhost:11434
 2025-12-23 19:16:38.289 | ERROR    | researcher.api.routes:research:85 | Unexpected error: No module named 'pydantic_ai.models.ollama'
 2025-12-23 19:16:38.289 | WARNING  | researcher.main:log_requests:43 | Request failed: POST http://localhost:8000/research - Status: 500
+2025-12-23 19:22:47.558 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:22:47.560 | INFO     | __main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:22:47.560 | INFO     | __main__:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:22:48.195 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:22:48.197 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:22:48.198 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:22:48.235 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:22:48.236 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:22:48.237 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:22:48.237 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:22:48.237 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:22:48.237 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:22:59.940 | INFO     | researcher.api.routes:research:57 | Research request: artic...
+2025-12-23 19:22:59.941 | INFO     | researcher.agent.researcher:_get_model:84 | Using local Ollama model: llama3.1 at http://localhost:11434
+2025-12-23 19:22:59.941 | ERROR    | researcher.api.routes:research:85 | Unexpected error: No module named 'pydantic_ai.models.ollama'
+2025-12-23 19:22:59.941 | WARNING  | researcher.main:log_requests:43 | Request failed: POST http://localhost:8000/research - Status: 500
+2025-12-23 19:24:42.956 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:24:43.796 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:24:43.799 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:24:43.800 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:24:43.840 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:24:43.842 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:24:43.842 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:24:43.843 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:24:43.843 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:24:43.843 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:25:48.892 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:26:09.020 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:26:09.022 | INFO     | __main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:26:09.022 | INFO     | __main__:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:26:09.694 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:26:09.696 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:26:09.696 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:26:09.731 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:26:09.733 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:26:09.734 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:26:09.734 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:26:09.734 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:26:09.734 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:26:15.487 | INFO     | researcher.api.routes:research:57 | Research request: artic...
+2025-12-23 19:26:15.487 | INFO     | researcher.agent.researcher:_get_model:84 | Using local Ollama model: llama3.1 at http://localhost:11434
+2025-12-23 19:26:15.788 | ERROR    | researcher.api.routes:research:85 | Unexpected error: Set the `OLLAMA_BASE_URL` environment variable or pass it via `OllamaProvider(base_url=...)`to use the Ollama provider.
+2025-12-23 19:26:15.788 | WARNING  | researcher.main:log_requests:43 | Request failed: POST http://localhost:8000/research - Status: 500
+2025-12-23 19:26:59.644 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:27:00.492 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:27:00.495 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:27:00.495 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:27:00.532 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:27:00.535 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:27:00.535 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:27:00.535 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:27:00.535 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:27:00.535 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:28:41.103 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:28:43.868 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:28:43.870 | INFO     | __main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:28:43.870 | INFO     | __main__:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:28:44.599 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:28:44.602 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:28:44.602 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:28:44.643 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:28:44.645 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:28:44.645 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:28:44.646 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:28:44.646 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:28:44.646 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:28:49.903 | INFO     | researcher.api.routes:research:57 | Research request: artic...
+2025-12-23 19:28:49.903 | INFO     | researcher.agent.researcher:_get_model:85 | Using local Ollama model: llama3.1 at http://localhost:11434
+2025-12-23 19:28:50.239 | WARNING  | researcher.data.tier2.tavily_client:__init__:27 | Tavily API key not found. Tier 2 search will be unavailable.
+2025-12-23 19:28:50.240 | INFO     | researcher.agent.researcher:__init__:75 | Tier 1 agent initialized with model: ollama:llama3.1
+2025-12-23 19:28:50.240 | INFO     | researcher.core.logging:log_research_request:78 | Research request received
+2025-12-23 19:28:53.114 | ERROR    | researcher.agent.researcher:basic_research:206 | Basic research failed: status_code: 404, model_name: llama3.1, body: 404 page not found
+2025-12-23 19:30:24.996 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:30:25.921 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:30:25.924 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:30:25.924 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:30:25.965 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:30:25.967 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:30:25.967 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:30:25.967 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:30:25.968 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:30:25.968 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:31:01.710 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:31:03.975 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:31:03.977 | INFO     | __main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:31:03.977 | INFO     | __main__:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:31:04.682 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:31:04.684 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:31:04.685 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:31:04.723 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:31:04.725 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:31:04.725 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1
+2025-12-23 19:31:04.725 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:31:04.725 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:31:04.726 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:31:12.521 | INFO     | researcher.api.routes:research:57 | Research request: artic expedition...
+2025-12-23 19:31:12.521 | INFO     | researcher.agent.researcher:_get_model:85 | Using local Ollama model: llama3.1 at http://localhost:11434
+2025-12-23 19:31:12.832 | WARNING  | researcher.data.tier2.tavily_client:__init__:27 | Tavily API key not found. Tier 2 search will be unavailable.
+2025-12-23 19:31:12.832 | INFO     | researcher.agent.researcher:__init__:75 | Tier 1 agent initialized with model: ollama:llama3.1
+2025-12-23 19:31:12.832 | INFO     | researcher.core.logging:log_research_request:78 | Research request received
+2025-12-23 19:31:13.272 | ERROR    | researcher.agent.researcher:basic_research:210 | Basic research failed: status_code: 404, model_name: llama3.1, body: 404 page not found
+2025-12-23 19:31:56.811 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:31:59.048 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:31:59.050 | INFO     | __main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:31:59.050 | INFO     | __main__:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:31:59.760 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:31:59.762 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:31:59.763 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:31:59.809 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:31:59.811 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:31:59.812 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:31:59.813 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:31:59.813 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:31:59.813 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:32:10.581 | INFO     | researcher.api.routes:research:57 | Research request: artic expeditions...
+2025-12-23 19:32:10.581 | INFO     | researcher.agent.researcher:_get_model:85 | Using local Ollama model: llama3.1:8b at http://localhost:11434
+2025-12-23 19:32:10.914 | WARNING  | researcher.data.tier2.tavily_client:__init__:27 | Tavily API key not found. Tier 2 search will be unavailable.
+2025-12-23 19:32:10.915 | INFO     | researcher.agent.researcher:__init__:75 | Tier 1 agent initialized with model: ollama:llama3.1:8b
+2025-12-23 19:32:10.915 | INFO     | researcher.core.logging:log_research_request:78 | Research request received
+2025-12-23 19:32:11.370 | ERROR    | researcher.agent.researcher:basic_research:210 | Basic research failed: status_code: 404, model_name: llama3.1:8b, body: 404 page not found
+2025-12-23 19:34:37.075 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:34:37.947 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:34:37.949 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:34:37.950 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:34:37.988 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:34:37.990 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:34:37.990 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:34:37.991 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:34:37.991 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:34:37.991 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:35:51.647 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:35:55.027 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:35:55.029 | INFO     | __main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:35:55.029 | INFO     | __main__:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:35:55.655 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:35:55.657 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:35:55.658 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:35:55.691 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:35:55.693 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:35:55.694 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:35:55.695 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:35:55.695 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:35:55.695 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:36:13.952 | INFO     | researcher.api.routes:research:57 | Research request: artic ...
+2025-12-23 19:36:13.952 | INFO     | researcher.agent.researcher:_get_model:85 | Using local Ollama model: llama3.1:8b at http://localhost:11434
+2025-12-23 19:36:14.256 | WARNING  | researcher.data.tier2.tavily_client:__init__:27 | Tavily API key not found. Tier 2 search will be unavailable.
+2025-12-23 19:36:14.256 | INFO     | researcher.agent.researcher:__init__:75 | Tier 1 agent initialized with model: ollama:llama3.1:8b
+2025-12-23 19:36:14.256 | INFO     | researcher.core.logging:log_research_request:78 | Research request received
+2025-12-23 19:36:14.690 | ERROR    | researcher.agent.researcher:basic_research:203 | Basic research failed: status_code: 404, model_name: llama3.1:8b, body: 404 page not found
+2025-12-23 19:41:44.686 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:41:45.540 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:41:45.542 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:41:45.542 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:41:45.586 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:41:45.587 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:41:45.588 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:41:45.588 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:41:45.588 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:41:45.588 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:41:49.196 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:41:49.952 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:41:49.954 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:41:49.954 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:41:49.990 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:41:49.993 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:41:49.993 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:41:49.993 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:41:49.993 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:41:49.993 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:42:35.781 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:42:36.540 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:42:36.542 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:42:36.543 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:42:36.578 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:42:36.580 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:42:36.581 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:42:36.581 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:42:36.581 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:42:36.581 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:42:55.241 | INFO     | researcher.api.routes:research:57 | Research request: artic...
+2025-12-23 19:42:55.241 | INFO     | researcher.agent.researcher:_get_model:85 | Using local Ollama model: llama3.1:8b at http://localhost:11434
+2025-12-23 19:42:55.536 | WARNING  | researcher.data.tier2.tavily_client:__init__:27 | Tavily API key not found. Tier 2 search will be unavailable.
+2025-12-23 19:42:55.536 | INFO     | researcher.agent.researcher:__init__:75 | Tier 1 agent initialized with model: ollama:llama3.1:8b
+2025-12-23 19:42:55.536 | INFO     | researcher.core.logging:log_research_request:78 | Research request received
+2025-12-23 19:42:55.979 | ERROR    | researcher.agent.researcher:basic_research:206 | Basic research failed: status_code: 404, model_name: llama3.1:8b, body: 404 page not found
+2025-12-23 19:49:14.257 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:49:16.317 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:49:16.319 | INFO     | __main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:49:16.320 | INFO     | __main__:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:49:17.021 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:49:17.024 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:49:17.024 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:49:17.063 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:49:17.065 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:49:17.065 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:49:17.066 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:49:17.066 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:49:17.066 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:49:25.802 | INFO     | researcher.api.routes:research:57 | Research request: hilton...
+2025-12-23 19:49:25.803 | INFO     | researcher.agent.researcher:_get_model:85 | Using local Ollama model: llama3.1:8b at http://localhost:11434
+2025-12-23 19:49:26.123 | WARNING  | researcher.data.tier2.tavily_client:__init__:27 | Tavily API key not found. Tier 2 search will be unavailable.
+2025-12-23 19:49:26.123 | INFO     | researcher.agent.researcher:__init__:75 | Tier 1 agent initialized with model: ollama:llama3.1:8b
+2025-12-23 19:49:26.123 | INFO     | researcher.core.logging:log_research_request:78 | Research request received
+2025-12-23 19:49:26.587 | ERROR    | researcher.agent.researcher:basic_research:206 | Basic research failed: status_code: 404, model_name: llama3.1:8b, body: 404 page not found
+2025-12-23 19:50:14.321 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:50:14.323 | INFO     | __main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:50:14.324 | INFO     | __main__:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:50:15.024 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:50:15.025 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:50:15.026 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:50:15.062 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:50:15.065 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:50:15.065 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:50:15.065 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:50:15.065 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:50:15.066 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False
+2025-12-23 19:50:21.065 | INFO     | researcher.api.routes:research:57 | Research request: asdfasd...
+2025-12-23 19:50:21.065 | INFO     | researcher.core.logging:log_research_request:78 | Research request received
+2025-12-23 19:50:21.322 | ERROR    | researcher.agent.researcher:basic_research:206 | Basic research failed: status_code: 404, model_name: llama3.1:8b, body: 404 page not found
+2025-12-23 19:50:30.546 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:50:32.922 | INFO     | researcher.main:shutdown_event:79 | Application shutting down...
+2025-12-23 19:50:37.834 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:50:37.836 | INFO     | __main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:50:37.836 | INFO     | __main__:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:50:38.665 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:50:38.667 | INFO     | __mp_main__:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:50:38.667 | INFO     | __mp_main__:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:50:38.702 | INFO     | researcher.core.logging:setup_logging:71 | Logging initialized: level=INFO, format=text
+2025-12-23 19:50:38.704 | INFO     | researcher.main:<module>:55 | Serving web client from: C:\Users\uriol\development\projects\Researcher\web
+2025-12-23 19:50:38.704 | INFO     | researcher.main:<module>:63 | FastAPI app initialized: ollama:llama3.1:8b
+2025-12-23 19:50:38.704 | INFO     | researcher.main:startup_event:71 | Application starting up...
+2025-12-23 19:50:38.705 | INFO     | researcher.main:startup_event:72 | Tier 1 enabled: True
+2025-12-23 19:50:38.705 | INFO     | researcher.main:startup_event:73 | Tier 2 available: False

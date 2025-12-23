@@ -4,6 +4,7 @@ PydanticAI agent with Tier 1 built-in tools.
 Uses WebSearchTool and WebFetchTool for research with automatic citations.
 """
 
+import os
 import time
 from datetime import datetime
 
@@ -82,10 +83,22 @@ class ResearchAgent:
         
         if provider == "ollama":
             logger.info(f"Using local Ollama model: {model_name} at {settings.ollama_base_url}")
-            from pydantic_ai.models.ollama import OllamaModel
-            return OllamaModel(
+            # Some providers (e.g. LiteLLM's Ollama provider) read the base URL from env vars.
+            # Setting these here keeps local setup minimal and avoids runtime errors.
+            ollama_host = settings.ollama_base_url.rstrip("/")
+            os.environ.setdefault("OLLAMA_BASE_URL", ollama_host)
+            os.environ.setdefault("OLLAMA_HOST", ollama_host)
+
+            # pydantic_ai>=1.x routes Ollama support via the OpenAI model with provider='ollama'
+            # using Ollama's OpenAI-compatible endpoint.
+            os.environ.setdefault("OPENAI_BASE_URL", f"{ollama_host}/v1")
+            os.environ.setdefault("OPENAI_API_KEY", "ollama")
+
+            from pydantic_ai.models.openai import OpenAIModel
+
+            return OpenAIModel(
                 model_name=model_name,
-                base_url=f"{settings.ollama_base_url}/api" if not settings.ollama_base_url.endswith("/api") else settings.ollama_base_url
+                provider="ollama",
             )
         
         if provider == "openai":
